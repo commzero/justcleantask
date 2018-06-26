@@ -1,0 +1,37 @@
+<app-navbar [increment]="increment"></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+      <div class="col-md-12">
+        <h4 class="pull-left">
+          Total: {{total}} $
+        </h4>
+        <button type="button" class="btn btn-primary pull-right" routerLink="/home">Check out!</button>
+
+      </div>
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <app-cart class="col-md-2 col-sm-2 col-xs-12 col-lg-2" *ngFor="let product of Products" [product]="product" [total]="total">
+        </app-cart>
+      </div>
+      <ul *ngIf="items">
+        <li class="padding-add col-md-3 col-sm-12 col-xs-12" *ngFor="let item of items; let i of index">
+          <div class=" col-md-12">
+            <div class="col-md-2 col-sm-2 col-xs-12 pull-right">
+              <button *ngIf="!items.added" (click)="addProduct(item)" class="btn-6 fa fa-plus"></button>
+              <button *ngIf="items.added" (click)="removeProduct(item.id)" class="fa fa-minus btn-6"></button>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 padding-add">
+              <img class="pull-left" src="{{item.imageUrl}}" width="100">
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 padding-add">
+              <h4>{{item.id}}- {{item.name}}</h4>
+              <h6>Material: {{item.service1}}</h6>
+              <h6>Options: {{item.service2}}</h6>
+              <h6>Price: {{item.service3}} $</h6>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

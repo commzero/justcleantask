@@ -1,0 +1,16 @@
+.padding-add{
+    padding: 5%;
+    background-color: white;
+}
+.btn-6 {
+    color: #66993f;
+    border: 2px solid #66993f;  
+    margin: 8px; 
+    border-radius: 10px;   
+}
+.btn-6:hover {
+    background-color: #d2e1c7;
+  }
+  .btn-6:active {
+    background-color: #4b871d;
+  }
